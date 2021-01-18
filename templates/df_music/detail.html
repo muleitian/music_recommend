@@ -1,0 +1,50 @@
+{% extends 'df_music/base.html' %}
+
+
+
+{% block center_content %}
+	<div class="goods_detail_con clearfix">
+		<div class="goods_detail_pic fl"><img src="{{ MEDIA_URL }}{{ songs.mpic }}" width="300px" height="350px"></div>
+
+		<div class="goods_detail_list fr" >
+			<h3 class="blogk" style="margin-left: 300px">{{ songs.mtitle }}</h3>
+
+
+		</div>
+	</div>
+
+	<div class="main_wrap clearfix">
+		<div class="l_wrap fl clearfix">
+			<div class="new_goods">
+				<h3>新歌推荐</h3>
+				<ul>
+                    {% for songs in song_rec %}
+					<li>
+						<a href="/{{ songs.id }}"><img src="{{ MEDIA_URL }}{{ songs.mpic }}"></a>
+						<h4><a href="#">{{ songs.mtitle }}</a></h4>
+					</li>
+                    {%  endfor %}
+                </ul>
+			</div>
+		</div>
+
+		<div class="r_wrap fr clearfix">
+			<ul class="detail_tab clearfix">
+				<li class="active">歌曲介绍</li>
+
+			</ul>
+
+			<div class="tab_content">
+				<dl>
+					<dt>歌曲详情：</dt>
+					<dd>{{ songs.mcontext|safe }}</dd>
+				</dl>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+{% endblock center_content %}

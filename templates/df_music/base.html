@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block center_body %}
+
+    <div class="navbar_con">
+		<div class="navbar clearfix">
+			<div class="subnav_con fl">
+				<h1>全部音乐分类</h1>
+				<span></span>
+				<ul class="subnav">
+					<li><a href="/list1_1_1/" class="fruit">摇滚</a></li>
+					<li><a href="/list2_1_1/" class="seafood">古典</a></li>
+					<li><a href="/list3_1_1/" class="meet">轻音乐</a></li>
+					<li><a href="/list4_1_1/" class="egg">热歌</a></li>
+					<li><a href="/list5_1_1/" class="vegetables">DJ</a></li>
+					<li><a href="/list6_1_1/" class="ice">经典老歌</a></li>
+				</ul>
+			</div>
+			<ul class="navlist fl">
+				<li><a href="{% url "df_goods:index" %}">首页</a></li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="breadcrumb">
+		全部分类 > {{ title }}
+		{% if id|default:' ' != ' ' %}
+        > 歌曲详情
+		{% endif %}
+	</div>
+
+{% block center_content %}
+
+{% endblock center_content %}
+
+{% endblock center_body %}

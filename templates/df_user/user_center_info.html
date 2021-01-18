@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block center_body %}
+
+
+	<div class="main_con clearfix">
+		<div class="left_menu_con clearfix">
+			<h3>用户中心</h3>
+			<ul>
+				<li><a href="{% url "df_user:info" %}" class="active">· 个人信息</a></li>
+
+			</ul>
+		</div>
+		<div class="right_content clearfix">
+				<div class="info_con clearfix">
+				<h3 class="common_title2">基本信息</h3>
+						<ul class="user_info_list">
+							<li><span>用户名：</span>{{ user_name }}</li>
+
+						</ul>
+				</div>
+            <h3 class="common_title2">{{ explain }}</h3>
+            <div class="has_view_list">
+                <ul class="goods_type_list clearfix">
+                    {%  for music in music_list %}
+                    <li>
+                        <a href="/{{ music.id }}/"><img src="{{ MEDIA_URL }}{{ music.mpic }}"></a>
+                        <h4><a href="/{{ music.id }}/">{{ music.mtitle }}</a></h4>
+
+                    </li>
+                    {% endfor %}
+			</ul>
+            </div>
+		</div>
+	</div>
+{% endblock center_body %}
